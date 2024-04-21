@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+#pacakge.json에 있는 dependency 의존성들을 설치해서 node_module 를 다운받음.
+RUN npm install
+
+COPY ./ ./
+
+CMD ["npm","run","start"]
